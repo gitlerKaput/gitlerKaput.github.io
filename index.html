@@ -7,11 +7,11 @@
     <!-- meta для соцсетей -->
     <meta property="og:url" content="">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Артем Исламов - верстка сайтов на HTML и CSS">
+    <meta property="og:title" content="Василий Гостенов - верстка сайтов на HTML и CSS">
     <meta property="og:image" content="">
     <meta property="og:description" content="Закажите разработку сайта без посредников от 5 990 рублей">
     <meta property="og:site_name" content="Портфолио верстальщика">
-    <meta property="article:author" content="Артем Исламов">
+    <meta property="article:author" content="Василий Гостенов">
     <!-- Заголовок сайта -->
     <title>Vitamin - Портфолио</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=cyrillic" rel="stylesheet">
@@ -37,10 +37,10 @@
         <p>Верстка на HTML и CSS <br>разработка сайтов под ключ</p>
         </div>
       </div>
-      <a class="main-down" href="#"><i class="icon-down"></i></a>
+      <a class="main-down" href="#portfolio"><i class="icon-down"></i></a>
     </div>
 
-    <div class="portfolio">
+    <div class="portfolio" id="portfolio">
       <div class="container">
         <h2 class="section-header">Портфолио</h2>
         <div class="row">
@@ -53,13 +53,13 @@
           <div class="col-md-4">
             <div class="portfolio-block">
               <img src="img/portfolio/2.jpg" alt="Работа №2">
-              <a href="#">Смотреть работу</a>
+              <a data-toggle="modal" href="#work-2">Смотреть работу</a>
             </div>
           </div>
           <div class="col-md-4">
             <div class="portfolio-block">
               <img src="img/portfolio/3.jpg" alt="Работа №3">
-              <a href="#">Смотреть работу</a>
+              <a data-toggle="modal" href="#work-3">Смотреть работу</a>
             </div>
           </div>
         </div>
@@ -76,14 +76,14 @@
           <div class="col-lg-6">
             <strong>Подпишитесь</strong>
             <div class="social-links">
-              <a href="#"><i class="icon-vk"></i></a>
+              <a href="https://vk.me/id28060439"><i class="icon-vk"></i></a>
               <a href="#"><i class="icon-instagram"></i></a>
               <a href="#"><i class="icon-twitter"></i></a>
             </div>
           </div>
           <div class="col-lg-3">
             <strong>Напишите мне</strong>
-            <a href="#" class="offer-btn">Заказать сайт</a>
+            <a href="https://vk.me/id28060439" class="offer-btn">Заказать сайт</a>
           </div>
         </div>
       </div>
@@ -113,8 +113,68 @@
       </div>
     </div>
 
+    <div class="modal fade" id="work-2" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Работа №2</h4>
+          </div>
+          <div class="modal-body">
+           <div class="row">
+              <div class="col-lg-5">
+              <img src="img/portfolio/2.jpg" alt="Вторая работа">
+            </div>
+            <div class="col-lg-7">
+              <h4>Сайт для чего-го еще</h4>
+              <p>Описание сайта</p>
+              <a href="https://vk.me/id28060439" class="modal-btn">Заказать такой сайт</a>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="work-3" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Работа №3</h4>
+          </div>
+          <div class="modal-body">
+           <div class="row">
+              <div class="col-lg-5">
+              <img src="img/portfolio/3.jpg" alt="Третья работа">
+            </div>
+            <div class="col-lg-7">
+              <h4>Сайт для путешествий</h4>
+              <p>Описание сайта</p>
+              <a href="https://vk.me/id28060439" class="modal-btn">Заказать такой сайт</a>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#menu").on("click", function (event) {
+          //отменяем стандартную обработку нажатия по ссылке
+          event.preventDefault();
+          //забираем идентификатор бока с атрибута href
+          var id  = $(this).attr('href'),
+          //узнаем высоту от начала страницы до блока на который ссылается якорь
+            top = $(id).offset().top;
+          //анимируем переход на расстояние - top за 1500 мс
+          $('body,html').animate({scrollTop: top}, 800);
+        });
+      });
+    </script>
   </body>
 </html>
